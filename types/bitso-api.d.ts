@@ -47,7 +47,7 @@ interface BitsoAPI {
     getBalance: () => PromiseResponse<AccountBalance>
     getFees: () => PromiseResponse<CustomerFee>
     ledger: {
-      getFullLedger: (params?: LedgerQueryParams) => PromiseResponse<AccountLedger[]>
+      getLedger: (params?: LedgerQueryParams) => PromiseResponse<AccountLedger[]>
       getTrades: (params?: LedgerQueryParams) => PromiseResponse<LedgerTrade[]>
       getFees: (params?: LedgerQueryParams) => PromiseResponse<LedgerFee[]>
       getFundings: (params?: LedgerQueryParams) => PromiseResponse<LedgerFunding[]>

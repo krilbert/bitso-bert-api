@@ -12,7 +12,7 @@ const BitsoAPI: BitsoAPI = {
     getBalance: () => privateGet('/balance'),
     getFees: () => privateGet('/fees'),
     ledger: {
-      getFullLedger: (params) => privateGet('/ledger', params),
+      getLedger: (params) => privateGet('/ledger', params),
       getTrades: (params) => privateGet('/ledger/trades', params),
       getFees: (params) => privateGet('/ledger/fees', params),
       getFundings: (params) => privateGet('/ledger/fundings', params),
