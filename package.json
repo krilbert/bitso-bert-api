@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "name": "bitso-bert-api",
+  "author": "Alberto Sánchez (krilbert)",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.10.1",
+    "@types/node-fetch": "^2.5.8",
+    "husky": "^5.1.3",
+    "size-limit": "^4.10.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {},
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "module": "dist/bitso-bert-api.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/bitso-bert-api.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/bitso-bert-api.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "dependencies": {
+    "camelcase-keys": "^6.2.2",
+    "node-fetch": "^2.6.1"
+  }
+}
