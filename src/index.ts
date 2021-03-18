@@ -3,9 +3,9 @@ import { privateDelete, privateGet, publicGet } from './api-client'
 const BitsoAPI: BitsoAPI = {
   public: {
     getAvailableBooks: () => publicGet('/available_books'),
-    getTicker: (params) => publicGet('/ticker', params),
-    getOrderBook: (params) => publicGet('/order_book', params),
-    getTrades: (params) => publicGet('/trades', params),
+    getTicker: (book) => publicGet('/ticker', { book }),
+    getOrderBook: (book, params) => publicGet('/order_book', { ...params, book }),
+    getTrades: (book, params) => publicGet('/trades', { ...params, book }),
   },
   private: {
     getAccountStatus: () => privateGet('/account_status'),
@@ -20,24 +20,24 @@ const BitsoAPI: BitsoAPI = {
     },
     orderTrades: {
       getOrderTrades: (oid) => privateGet(`/order_trades/${oid}`),
-      getOrderTradesByOriginId: (params) => privateGet('/order_trades', params),
+      getOrderTradesByOriginId: (originId) => privateGet('/order_trades', { origin_id: originId }),
     },
     userTrades: {
-      getUserTrades: (params) => privateGet(`/user_trades`, params),
+      getUserTrades: (book, params) => privateGet(`/user_trades`, { ...params, book }),
       getUserTradeById: (tid) => privateGet(`/user_trades/${tid}`),
       getUserTradesById: (tids) => privateGet(`/user_trades/${tids.join('-')}`),
     },
     getOpenOrders: (params) => privateGet('/open_orders', params),
     lookupOrders: {
       getOrder: (oid) => privateGet(`/orders/${oid}`),
-      getOrders: (params) => privateGet(`/orders`, params),
-      getOrdersByOriginId: (params) => privateGet(`/orders`, params),
+      getOrders: (oids) => privateGet(`/orders`, { oids: oids.join(',') }),
+      getOrdersByOriginId: (originIds) => privateGet(`/orders`, { origin_ids: originIds.join(',') }),
     },
     cancelOrder: {
       cancelAllOrders: () => privateDelete('/orders/all'),
       cancelOrder: (oid) => privateDelete(`/orders/${oid}`),
-      cancelOrdersById: (params) => privateDelete('/orders', { oids: params.oids.join(',') }),
-      cancelOrdersByOrderId: (params) => privateDelete('/orders', { origin_ids: params.origin_ids.join(',') }),
+      cancelOrdersById: (oids) => privateDelete('/orders', { oids: oids.join(',') }),
+      cancelOrdersByOrderId: (originIds) => privateDelete('/orders', { origin_ids: originIds.join(',') }),
     },
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },

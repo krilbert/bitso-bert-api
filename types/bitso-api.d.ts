@@ -2,34 +2,11 @@ type PromiseResponse<T> = Promise<BitsoResponse<T>>
 
 type BitsoQueryParams = Record<string, any>
 
-interface TickerQueryParams {
-  book: Book
-}
-
 interface OrderBookQueryParams {
-  book: Book
   aggregate?: boolean
 }
 
-interface TradesQueryParams {
-  book: Book
-  marker?: string
-  sort?: BitsoSortDirection
-  limit?: number
-}
-
-interface LedgerQueryParams {
-  marker?: string
-  sort?: BitsoSortDirection
-  limit?: number
-}
-
-interface OrderTradesByOrigin {
-  origin_id: string
-}
-
-interface UserTradesQueryParams {
-  book: Book
+interface PaginationQueryParams {
   marker?: string
   sort?: BitsoSortDirection
   limit?: number
@@ -42,60 +19,44 @@ interface OpenOrdersQueryParams {
   limit?: number
 }
 
-interface OrderByIdQueryParams {
-  oids: string[]
-}
-
-interface OrderByOriginIdQueryParams {
-  origin_ids: string[]
-}
-
-interface CancelOrderByIdsQueryParams {
-  oids: string[]
-}
-
-interface CancelOrderByOrderIdsQueryParams {
-  origin_ids: string[]
-}
-
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
-    getTicker: (params: TickerQueryParams) => PromiseResponse<Ticker>
-    getOrderBook: (params: OrderBookQueryParams) => PromiseResponse<OrderBook>
-    getTrades: (params: TradesQueryParams) => PromiseResponse<Trade[]>
+    getTicker: (book: Book) => PromiseResponse<Ticker>
+    getOrderBook: (book: Book, params?: OrderBookQueryParams) => PromiseResponse<OrderBook>
+    getTrades: (book: Book, params?: PaginationQueryParams) => PromiseResponse<Trade[]>
   }
   private: {
     getAccountStatus: () => PromiseResponse<AccountStatus>
     getBalance: () => PromiseResponse<AccountBalance>
     getFees: () => PromiseResponse<CustomerFee>
     ledger: {
-      getLedger: (params?: LedgerQueryParams) => PromiseResponse<AccountLedger[]>
-      getTrades: (params?: LedgerQueryParams) => PromiseResponse<LedgerTrade[]>
-      getFees: (params?: LedgerQueryParams) => PromiseResponse<LedgerFee[]>
-      getFundings: (params?: LedgerQueryParams) => PromiseResponse<LedgerFunding[]>
-      getWithdrawals: (params?: LedgerQueryParams) => PromiseResponse<LedgerWithdrawal[]>
+      getLedger: (params?: PaginationQueryParams) => PromiseResponse<AccountLedger[]>
+      getTrades: (params?: PaginationQueryParams) => PromiseResponse<LedgerTrade[]>
+      getFees: (params?: PaginationQueryParams) => PromiseResponse<LedgerFee[]>
+      getFundings: (params?: PaginationQueryParams) => PromiseResponse<LedgerFunding[]>
+      getWithdrawals: (params?: PaginationQueryParams) => PromiseResponse<LedgerWithdrawal[]>
     }
     orderTrades: {
       getOrderTrades: (oid: string) => PromiseResponse<OrderTrade[]>
-      getOrderTradesByOriginId: (params: OrderTradesByOrigin) => PromiseResponse<OrderTrade[]>
+      getOrderTradesByOriginId: (originId: string) => PromiseResponse<OrderTrade[]>
     }
     userTrades: {
-      getUserTrades: (params: UserTradesQueryParams) => PromiseResponse<UserTrade[]>
+      getUserTrades: (book: Book, params?: PaginationQueryParams) => PromiseResponse<UserTrade[]>
       getUserTradeById: (tid: string) => PromiseResponse<UserTrade>
       getUserTradesById: (tids: string[]) => PromiseResponse<UserTrade[]>
     }
     getOpenOrders: (params?: OpenOrdersQueryParams) => PromiseResponse<OpenOrder[]>
     lookupOrders: {
       getOrder: (oid: string) => PromiseResponse<Order>
-      getOrders: (params: OrderByIdQueryParams) => PromiseResponse<Order[]>
-      getOrdersByOriginId: (params: OrderByOriginIdQueryParams) => PromiseResponse<Order[]>
+      getOrders: (oids: string[]) => PromiseResponse<Order[]>
+      getOrdersByOriginId: (originIds: string[]) => PromiseResponse<Order[]>
     }
     cancelOrder: {
       cancelAllOrders: () => PromiseResponse<string[]>
       cancelOrder: (oid: string) => PromiseResponse<string[]>
-      cancelOrdersById: (params: CancelOrderByIdsQueryParams) => PromiseResponse<string[]>
-      cancelOrdersByOrderId: (params: CancelOrderByOrderIdsQueryParams) => PromiseResponse<string[]>
+      cancelOrdersById: (oids: string[]) => PromiseResponse<string[]>
+      cancelOrdersByOrderId: (originIds: string[]) => PromiseResponse<string[]>
     }
     getBankCodes: () => PromiseResponse<BankCode[]>
   }
