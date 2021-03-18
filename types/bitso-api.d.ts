@@ -50,6 +50,14 @@ interface OrderByOriginIdQueryParams {
   origin_ids: string[]
 }
 
+interface CancelOrderByIdsQueryParams {
+  oids: string[]
+}
+
+interface CancelOrderByOrderIdsQueryParams {
+  origin_ids: string[]
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -82,6 +90,12 @@ interface BitsoAPI {
       getOrder: (oid: string) => PromiseResponse<Order>
       getOrders: (params: OrderByIdQueryParams) => PromiseResponse<Order[]>
       getOrdersByOriginId: (params: OrderByOriginIdQueryParams) => PromiseResponse<Order[]>
+    }
+    cancelOrder: {
+      cancelAllOrders: () => PromiseResponse<string[]>
+      cancelOrder: (oid: string) => PromiseResponse<string[]>
+      cancelOrdersById: (params: CancelOrderByIdsQueryParams) => PromiseResponse<string[]>
+      cancelOrdersByOrderId: (params: CancelOrderByOrderIdsQueryParams) => PromiseResponse<string[]>
     }
     getBankCodes: () => PromiseResponse<BankCode[]>
   }

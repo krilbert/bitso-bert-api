@@ -1,4 +1,4 @@
-import { privateGet, publicGet } from './api-client'
+import { privateDelete, privateGet, publicGet } from './api-client'
 
 const BitsoAPI: BitsoAPI = {
   public: {
@@ -32,6 +32,12 @@ const BitsoAPI: BitsoAPI = {
       getOrder: (oid) => privateGet(`/orders/${oid}`),
       getOrders: (params) => privateGet(`/orders`, params),
       getOrdersByOriginId: (params) => privateGet(`/orders`, params),
+    },
+    cancelOrder: {
+      cancelAllOrders: () => privateDelete('/orders/all'),
+      cancelOrder: (oid) => privateDelete(`/orders/${oid}`),
+      cancelOrdersById: (params) => privateDelete('/orders', { oids: params.oids.join(',') }),
+      cancelOrdersByOrderId: (params) => privateDelete('/orders', { origin_ids: params.origin_ids.join(',') }),
     },
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },
