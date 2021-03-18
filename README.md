@@ -50,7 +50,7 @@ Rate limits are based on one minute windows. For public API requests, the limit 
 | 🔒  | Ledger                           | ✅  |
 | 🔒  | Withdrawals                      | ☑️  |
 | 🔒  | Fundings                         | ☑️  |
-| 🔒  | User Trades                      | ☑️  |
+| 🔒  | User Trades                      | ✅  |
 | 🔒  | Order Trades                     | ✅  |
 | 🔒  | Open Orders                      | ☑️  |
 | 🔒  | Lookup Orders                    | ☑️  |

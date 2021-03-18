@@ -22,6 +22,11 @@ const BitsoAPI: BitsoAPI = {
       getOrderTrades: (oid) => privateGet(`/order_trades/${oid}`),
       getOrderTradesByOriginId: (params) => privateGet('/order_trades', params),
     },
+    userTrades: {
+      getUserTrades: (params) => privateGet(`/user_trades`, params),
+      getUserTradeById: (tid) => privateGet(`/user_trades/${tid}`),
+      getUserTradesById: (tids) => privateGet(`/user_trades/${tids.join('-')}`),
+    },
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },
 }

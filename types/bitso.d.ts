@@ -255,3 +255,21 @@ interface BankCode {
   code: string
   name: string
 }
+
+// TODO: seems that this is not the same as OrderTrade (tid?)
+interface UserTrade {
+  book: Book
+  createdAt: string
+  minor: string
+  major: string
+  feesAmount?: string
+  feesCurrency?: Currency
+  minorCurrency: Currency
+  majorCurrency: Currency
+  oid: string
+  tid: number
+  price: stringf
+  originId?: string
+  side: BitsoMakerSide
+  makerSide: BitsoMakerSide
+}

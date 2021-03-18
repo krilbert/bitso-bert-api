@@ -28,6 +28,13 @@ interface OrderTradesByOrigin {
   origin_id: string
 }
 
+interface UserTradesQueryParams {
+  book: Book
+  marker?: string
+  sort?: BitsoSortDirection
+  limit?: number
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -49,6 +56,11 @@ interface BitsoAPI {
     orderTrades: {
       getOrderTrades: (oid: string) => PromiseResponse<OrderTrade[]>
       getOrderTradesByOriginId: (params: OrderTradesByOrigin) => PromiseResponse<OrderTrade[]>
+    }
+    userTrades: {
+      getUserTrades: (params: UserTradesQueryParams) => PromiseResponse<UserTrade[]>
+      getUserTradeById: (tid: string) => PromiseResponse<UserTrade>
+      getUserTradesById: (tids: string[]) => PromiseResponse<UserTrade[]>
     }
     getBankCodes: () => PromiseResponse<BankCode[]>
   }
