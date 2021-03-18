@@ -52,7 +52,7 @@ Rate limits are based on one minute windows. For public API requests, the limit 
 | 🔒  | Fundings                         | ☑️  |
 | 🔒  | User Trades                      | ✅  |
 | 🔒  | Order Trades                     | ✅  |
-| 🔒  | Open Orders                      | ☑️  |
+| 🔒  | Open Orders                      | ✅  |
 | 🔒  | Lookup Orders                    | ☑️  |
 | 🔒  | Cancel Order                     | ☑️  |
 | 🔒  | Place an Order                   | ☑️  |

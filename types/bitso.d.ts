@@ -273,3 +273,18 @@ interface UserTrade {
   side: BitsoMakerSide
   makerSide: BitsoMakerSide
 }
+
+interface OpenOrder {
+  book: Book
+  originalAmount: string
+  unfilledAmount: string
+  originalValue: string
+  createdAt: string
+  updatedAt: string
+  price: string
+  oid: string
+  originId: string
+  side: BitsoMakerSide
+  status: string
+  type: string
+}

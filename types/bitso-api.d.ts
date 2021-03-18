@@ -35,6 +35,13 @@ interface UserTradesQueryParams {
   limit?: number
 }
 
+interface OpenOrdersQueryParams {
+  book?: Book
+  marker?: string
+  sort?: BitsoSortDirection
+  limit?: number
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -62,6 +69,7 @@ interface BitsoAPI {
       getUserTradeById: (tid: string) => PromiseResponse<UserTrade>
       getUserTradesById: (tids: string[]) => PromiseResponse<UserTrade[]>
     }
+    getOpenOrders: (params?: OpenOrdersQueryParams) => PromiseResponse<OpenOrder[]>
     getBankCodes: () => PromiseResponse<BankCode[]>
   }
 }
