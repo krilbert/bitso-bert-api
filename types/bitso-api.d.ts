@@ -42,6 +42,14 @@ interface OpenOrdersQueryParams {
   limit?: number
 }
 
+interface OrderByIdQueryParams {
+  oids: string[]
+}
+
+interface OrderByOriginIdQueryParams {
+  origin_ids: string[]
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -70,6 +78,11 @@ interface BitsoAPI {
       getUserTradesById: (tids: string[]) => PromiseResponse<UserTrade[]>
     }
     getOpenOrders: (params?: OpenOrdersQueryParams) => PromiseResponse<OpenOrder[]>
+    lookupOrders: {
+      getOrder: (oid: string) => PromiseResponse<Order>
+      getOrders: (params: OrderByIdQueryParams) => PromiseResponse<Order[]>
+      getOrdersByOriginId: (params: OrderByOriginIdQueryParams) => PromiseResponse<Order[]>
+    }
     getBankCodes: () => PromiseResponse<BankCode[]>
   }
 }

@@ -288,3 +288,17 @@ interface OpenOrder {
   status: string
   type: string
 }
+
+interface Order {
+  book: Book
+  originalAmount: string
+  unfilledAmount: string
+  originalValue: string
+  createdAt: string
+  updatedAt: string
+  price: string
+  oid: string
+  side: BitsoMakerSide
+  status: string
+  type: string
+}
