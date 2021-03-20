@@ -340,3 +340,36 @@ interface CompleteWithdrawal extends BaseWithdrawal {
     concepto: string
   }
 }
+
+interface Funding {
+  fid: string
+  status: string
+  createdAt: string
+  currency: Currency
+  method: string
+  amount: string
+}
+
+interface PendingFunding extends BaseFunding {
+  status: 'pending'
+  details: {
+    txHash: string
+  }
+}
+interface CompleteFunding extends BaseFunding {
+  status: 'complete'
+  methodName: string
+  asset: string
+  network: string
+  protocol: string
+  integration: string
+  details: {
+    senderName: string
+    senderClabe: string
+    senderBank: string
+    clave: string
+    claveRastreo: string
+    numericReference: string
+    concepto: string
+  }
+}

@@ -26,6 +26,14 @@ interface WithdrawalsQueryParams {
   method?: string
 }
 
+interface FundingsQueryParams {
+  marker?: string
+  limit?: number
+  status?: 'pending' | 'in_progress' | 'complete' | 'failed'
+  method?: string
+  txids?: string
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -49,6 +57,11 @@ interface BitsoAPI {
       getWithdrawalById: (wid: string) => PromiseResponse<Withdrawal>
       getWithdrawalsById: (wid: string[]) => PromiseResponse<Withdrawal[]>
       getWithdrawalsByOriginIds: (originIds: string[]) => PromiseResponse<Withdrawal[]>
+    }
+    fundings: {
+      getFundings: (params?: FundingsQueryParams) => PromiseResponse<Funding[]>
+      getFundingById: (fid: string) => PromiseResponse<Funding>
+      getFundingsByIds: (fids: string[]) => PromiseResponse<Funding[]>
     }
     orderTrades: {
       getOrderTrades: (oid: string) => PromiseResponse<OrderTrade[]>

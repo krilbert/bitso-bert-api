@@ -24,6 +24,11 @@ const BitsoAPI: BitsoAPI = {
       getWithdrawalsById: (wids) => privateGet('/withdrawals', { wids: wids.join(',') }),
       getWithdrawalsByOriginIds: (originIds) => privateGet('/withdrawals', { origin_ids: originIds.join(',') }),
     },
+    fundings: {
+      getFundings: (params) => privateGet('/fundings', params),
+      getFundingById: (fid) => privateGet(`/fundings/${fid}`),
+      getFundingsByIds: (fids) => privateGet(`/fundings/${fids.join('-')}`),
+    },
     orderTrades: {
       getOrderTrades: (oid) => privateGet(`/order_trades/${oid}`),
       getOrderTradesByOriginId: (originId) => privateGet('/order_trades', { origin_id: originId }),
