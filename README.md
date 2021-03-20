@@ -65,21 +65,21 @@ The API is divided in two sections: `public` and `private`
 | 🔒  | Fundings                         | ☑️  |                                                               |                                                                          |
 | 🔒  | User Trades                      |     |                                                               |                                                                          |
 | 🔒  | - by book                        | ✅  | userTrades.getUserTrades('btc_mxn', params?)                  | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
-| 🔒  | - by id                          | ✅  | userTrades.getUserTradeById('tid')                            |                                                                          |
-| 🔒  | - by ids                         | ✅  | userTrades.getUserTradesById(['tid1', 'tid2'])                |                                                                          |
+| 🔒  | - by id                          | ✅  | userTrades.getUserTradeById(tid)                              |                                                                          |
+| 🔒  | - by ids                         | ✅  | userTrades.getUserTradesById([tid1, tid2])                    |                                                                          |
 | 🔒  | Order Trades                     |     |                                                               |                                                                          |
-| 🔒  | - by oid                         | ✅  | orderTrades.getOrderTrades('oid')                             |                                                                          |
-| 🔒  | - by origin id                   | ✅  | orderTrades.getOrderTradesByOriginId('originId')              |                                                                          |
+| 🔒  | - by oid                         | ✅  | orderTrades.getOrderTrades(oid)                               |                                                                          |
+| 🔒  | - by origin id                   | ✅  | orderTrades.getOrderTradesByOriginId(originId)                |                                                                          |
 | 🔒  | Open Orders                      | ✅  | getOpenOrders(params?)                                        | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number, book?: Book }` |
 | 🔒  | Lookup Orders                    |     |                                                               |                                                                          |
-| 🔒  | - by oid                         | ✅  | lookupOrders.getOrder('oid')                                  |                                                                          |
-| 🔒  | - by list of oids                | ✅  | lookupOrders.getOrders(['oid1', 'oid2'])                      |                                                                          |
-| 🔒  | - by list of origin_ids          | ✅  | lookupOrders.getOrdersByOriginId(['originId1', 'originId2'])  |                                                                          |
+| 🔒  | - by oid                         | ✅  | lookupOrders.getOrder(oid)                                    |                                                                          |
+| 🔒  | - by list of oids                | ✅  | lookupOrders.getOrders([oid1, oid2])                          |                                                                          |
+| 🔒  | - by list of origin_ids          | ✅  | lookupOrders.getOrdersByOriginId([originId1, originId2])      |                                                                          |
 | 🔒  | Cancel Order                     |     |                                                               |                                                                          |
 | 🔒  | - all                            | ✅  | cancelOrder.cancelAllOrders()                                 |                                                                          |
-| 🔒  | - by oid                         | ✅  | cancelOrder.cancelOrder('oid')                                |                                                                          |
-| 🔒  | - by list of oids                | ✅  | cancelOrder.cancelOrdersById(['oid1', 'oid2'])                |                                                                          |
-| 🔒  | - by list of origin_ids          | ✅  | cancelOrder.cancelOrdersByOrderId(['originId1', 'originId2']) |                                                                          |
+| 🔒  | - by oid                         | ✅  | cancelOrder.cancelOrder(oid)                                  |                                                                          |
+| 🔒  | - by list of oids                | ✅  | cancelOrder.cancelOrdersById([oid1, oid2])                    |                                                                          |
+| 🔒  | - by list of origin_ids          | ✅  | cancelOrder.cancelOrdersByOrderId([originId1, originId2])     |                                                                          |
 | 🔒  | Place an Order                   | ☑️  |                                                               |                                                                          |
 | 🔒  | Funding Destination              | ☑️  |                                                               |                                                                          |
 | 🔒  | Crypto Withdrawals               | ☑️  |                                                               |                                                                          |
