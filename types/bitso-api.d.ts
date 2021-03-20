@@ -19,6 +19,13 @@ interface OpenOrdersQueryParams {
   limit?: number
 }
 
+interface WithdrawalsQueryParams {
+  marker?: string
+  limit?: number
+  status?: 'pending' | 'processing' | 'complete' | 'failed'
+  method?: string
+}
+
 interface BitsoAPI {
   public: {
     getAvailableBooks: () => PromiseResponse<AvailableBook[]>
@@ -38,7 +45,7 @@ interface BitsoAPI {
       getWithdrawals: (params?: PaginationQueryParams) => PromiseResponse<LedgerWithdrawal[]>
     }
     withdrawals: {
-      getWithdrawals: () => PromiseResponse<Withdrawal[]>
+      getWithdrawals: (params?: WithdrawalsQueryParams) => PromiseResponse<Withdrawal[]>
       getWithdrawalById: (wid: string) => PromiseResponse<Withdrawal>
       getWithdrawalsById: (wid: string[]) => PromiseResponse<Withdrawal[]>
       getWithdrawalsByOriginIds: (originIds: string[]) => PromiseResponse<Withdrawal[]>

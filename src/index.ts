@@ -19,7 +19,7 @@ const BitsoAPI: BitsoAPI = {
       getWithdrawals: (params) => privateGet('/ledger/withdrawals', params),
     },
     withdrawals: {
-      getWithdrawals: () => privateGet('/withdrawals'),
+      getWithdrawals: (params) => privateGet('/withdrawals', params),
       getWithdrawalById: (wid) => privateGet(`/withdrawals/${wid}`),
       getWithdrawalsById: (wids) => privateGet('/withdrawals', { wids: wids.join(',') }),
       getWithdrawalsByOriginIds: (originIds) => privateGet('/withdrawals', { origin_ids: originIds.join(',') }),

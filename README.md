@@ -58,7 +58,7 @@ The API is divided in two sections: `public` and `private`
 | 🔒  | - fundings                       | ✅  | ledger.getFundings(params?)                                   | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
 | 🔒  | - withdrawals                    | ✅  | ledger.getWithdrawals(params?)                                | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
 | 🔒  | Withdrawals                      |     |                                                               |                                                                          |
-| 🔒  | - all                            | ✅  | withdrawals.getWithdrawals()                                  |                                                                          |
+| 🔒  | - all                            | ✅  | withdrawals.getWithdrawals(params?)                           | `{ marker?: string, limit?: number, status: string, method: string }`    |
 | 🔒  | - by wid                         | ✅  | withdrawals.getWithdrawalById(wid)                            |                                                                          |
 | 🔒  | - by wids                        | ✅  | withdrawals.getWithdrawalsById([wid1, wid2])                  |                                                                          |
 | 🔒  | - by origin_ids                  | ✅  | withdrawals.getWithdrawalsByOriginIds([originId1, originId2]) |                                                                          |
