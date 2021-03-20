@@ -14,6 +14,14 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
+  "homepage": "https://github.com/krilbert/bitso-bert-api",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:krilbert/bitso-bert-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krilbert/bitso-bert-api/issues"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.1",
     "@types/node-fetch": "^2.5.8",
@@ -24,6 +32,17 @@
     "typescript": "^4.2.3"
   },
   "peerDependencies": {},
+  "keywords": [
+    "bitso",
+    "bitcoin",
+    "ethereum",
+    "xrp",
+    "mana",
+    "bat",
+    "crypto",
+    "api",
+    "wrapper"
+  ],
   "files": [
     "dist",
     "src"
