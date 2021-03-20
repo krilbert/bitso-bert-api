@@ -13,7 +13,7 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
         .join('&')
 
-    const requestPath = `/${process.env.BITSO_API_VERSION}${path}?${queryString}`
+    const requestPath = `/v3${path}?${queryString}`
 
     const config: RequestInit = {
       method,
@@ -32,7 +32,8 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
     }
 
     try {
-      const response = await fetch(`${process.env.BITSO_API_URL}${requestPath}`, config)
+      const url = `${process.env.BITSO_API_URL}${requestPath}`
+      const response = await fetch(url, config)
       const data = await response.json()
       if (response.ok) {
         return camelcaseKeys(data, { deep: true })

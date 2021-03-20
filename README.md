@@ -10,7 +10,6 @@ You will need the following environment variables in your project
 API_KEY=""
 API_SECRET=""
 API_URL="https://api.bitso.com"
-API_VERSION="v3"
 ```
 
 > When working on integrations, bitso recommends that you use their dev server before running your code against production. The URL for this server is https://api-dev.bitso.com/v3/

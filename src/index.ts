@@ -54,9 +54,9 @@ const BitsoAPI: BitsoAPI = {
   },
 }
 
-if (!process.env.BITSO_API_URL || !process.env.BITSO_API_VERSION)
+if (!process.env.BITSO_API_URL)
   throw new Error(
-    'Check your env vars: [BITSO_API_URL, BITSO_API_VERSION] are required, and [BITSO_API_KEY, BITSO_API_SECRET] only if you need the private endpoints',
+    'Check your env vars: [BITSO_API_URL] is required, and [BITSO_API_KEY, BITSO_API_SECRET] only if you need the private endpoints',
   )
 
 export default BitsoAPI
