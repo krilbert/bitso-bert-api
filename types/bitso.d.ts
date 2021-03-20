@@ -373,3 +373,7 @@ interface CompleteFunding extends BaseFunding {
     concepto: string
   }
 }
+
+interface MobilePhoneNumber {
+  phone: string
+}

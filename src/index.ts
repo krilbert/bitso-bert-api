@@ -1,4 +1,4 @@
-import { privateDelete, privateGet, publicGet } from './api-client'
+import { privateDelete, privateGet, privatePost, publicGet } from './api-client'
 
 const BitsoAPI: BitsoAPI = {
   public: {
@@ -9,6 +9,10 @@ const BitsoAPI: BitsoAPI = {
   },
   private: {
     getAccountStatus: () => privateGet('/account_status'),
+    mobilePhone: {
+      register: (phoneNumber) => privatePost('/phone_number', undefined, { phone_number: phoneNumber }),
+      verify: (code) => privatePost('/phone_verification', undefined, { verification_code: code }),
+    },
     getBalance: () => privateGet('/balance'),
     getFees: () => privateGet('/fees'),
     ledger: {

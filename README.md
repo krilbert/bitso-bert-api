@@ -46,8 +46,8 @@ The API is divided in two sections: `public` and `private`
 |     | Trades                           | ✅  | getTrades('btc_mxn', params?)                                 | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
 | 🔒  | Account Status                   | ✅  | getAccountStatus()                                            |                                                                                         |
 | 🔒  | Document Upload                  | ☑️  |                                                               |                                                                                         |
-| 🔒  | Mobile Phone Number Registration | ☑️  |                                                               |                                                                                         |
-| 🔒  | Mobile Phone Number Verification | ☑️  |                                                               |                                                                                         |
+| 🔒  | Mobile Phone Number Registration | ✅  | mobilePhone.register(phoneNumber)                             |                                                                                         |
+| 🔒  | Mobile Phone Number Verification | ✅  | mobilePhone.verify(verificationCode)                          |                                                                                         |
 | 🔒  | Account Balance                  | ✅  | getBalance()                                                  |                                                                                         |
 | 🔒  | Fees                             | ✅  | getFees()                                                     |                                                                                         |
 | 🔒  | Ledger                           |     |                                                               |                                                                                         |

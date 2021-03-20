@@ -1,6 +1,7 @@
 type PromiseResponse<T> = Promise<BitsoResponse<T>>
 
 type BitsoQueryParams = Record<string, any>
+type BitsoBodyParams = Record<string, any>
 
 interface OrderBookQueryParams {
   aggregate?: boolean
@@ -43,6 +44,10 @@ interface BitsoAPI {
   }
   private: {
     getAccountStatus: () => PromiseResponse<AccountStatus>
+    mobilePhone: {
+      register: (phoneNumber: string) => PromiseResponse<MobilePhoneNumber>
+      verify: (verificationCode: string) => PromiseResponse<MobilePhoneNumber>
+    }
     getBalance: () => PromiseResponse<AccountBalance>
     getFees: () => PromiseResponse<CustomerFee>
     ledger: {

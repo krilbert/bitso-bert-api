@@ -3,7 +3,11 @@ import camelcaseKeys from 'camelcase-keys'
 import fetch, { RequestInit } from 'node-fetch'
 
 const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) => {
-  return async function request<T>(path: string, queryParams?: BitsoQueryParams): Promise<BitsoResponse<T>> {
+  return async function request<T>(
+    path: string,
+    queryParams?: BitsoQueryParams,
+    bodyParams?: BitsoBodyParams,
+  ): Promise<BitsoResponse<T>> {
     if (isPrivate && (!process.env.BITSO_API_KEY || !process.env.BITSO_API_SECRET))
       throw new Error('[BITSO_API_KEY, BITSO_API_SECRET] enviroment variables are required for private endpoints')
 
@@ -22,7 +26,11 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
 
     if (isPrivate) {
       const nonce = new Date().getTime()
-      const message = nonce + method + requestPath
+      let message = nonce + method + requestPath
+      if (method === 'POST') {
+        config.body = JSON.stringify(bodyParams || {})
+        message += config.body
+      }
       const signature = crypto
         .createHmac('sha256', process.env.BITSO_API_SECRET)
         .update(message)
@@ -49,3 +57,4 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
 export const publicGet = client('GET')
 export const privateGet = client('GET', true)
 export const privateDelete = client('DELETE', true)
+export const privatePost = client('POST', true)
