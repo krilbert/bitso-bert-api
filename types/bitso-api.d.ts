@@ -37,6 +37,12 @@ interface BitsoAPI {
       getFundings: (params?: PaginationQueryParams) => PromiseResponse<LedgerFunding[]>
       getWithdrawals: (params?: PaginationQueryParams) => PromiseResponse<LedgerWithdrawal[]>
     }
+    withdrawals: {
+      getWithdrawals: () => PromiseResponse<Withdrawal[]>
+      getWithdrawalById: (wid: string) => PromiseResponse<Withdrawal>
+      getWithdrawalsById: (wid: string[]) => PromiseResponse<Withdrawal[]>
+      getWithdrawalsByOriginIds: (originIds: string[]) => PromiseResponse<Withdrawal[]>
+    }
     orderTrades: {
       getOrderTrades: (oid: string) => PromiseResponse<OrderTrade[]>
       getOrderTradesByOriginId: (originId: string) => PromiseResponse<OrderTrade[]>

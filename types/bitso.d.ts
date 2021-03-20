@@ -302,3 +302,41 @@ interface Order {
   status: string
   type: string
 }
+
+type Withdrawal = PendingWithdrawal | CompleteWithdrawal
+
+interface BaseWithdrawal {
+  wid: string
+  status: string
+  createdAt: string
+  currency: Currency
+  method: string
+  methodName: string
+  amount: string
+}
+
+interface PendingWithdrawal extends BaseWithdrawal {
+  status: 'pending'
+  details: {
+    withdrawalAddres: string
+    txHash: string
+  }
+}
+
+interface CompleteWithdrawal extends BaseWithdrawal {
+  status: 'complete'
+  asset: string
+  network: string
+  protocol: string
+  integration: string
+  senderName: string
+  details: {
+    clientWithdrawalId: string
+    beneficiaryName: string
+    beneficiaryClabe: string
+    beneficiaryBankCode: string
+    cep: any
+    claveDeRastreo: string
+    concepto: string
+  }
+}

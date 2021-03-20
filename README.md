@@ -57,7 +57,11 @@ The API is divided in two sections: `public` and `private`
 | 🔒  | - fees                           | ✅  | ledger.getFees(params?)                                       | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
 | 🔒  | - fundings                       | ✅  | ledger.getFundings(params?)                                   | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
 | 🔒  | - withdrawals                    | ✅  | ledger.getWithdrawals(params?)                                | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
-| 🔒  | Withdrawals                      | ☑️  |                                                               |                                                                          |
+| 🔒  | Withdrawals                      |     |                                                               |                                                                          |
+| 🔒  | - all                            | ✅  | withdrawals.getWithdrawals()                                  |                                                                          |
+| 🔒  | - by wid                         | ✅  | withdrawals.getWithdrawalById(wid)                            |                                                                          |
+| 🔒  | - by wids                        | ✅  | withdrawals.getWithdrawalsById([wid1, wid2])                  |                                                                          |
+| 🔒  | - by origin_ids                  | ✅  | withdrawals.getWithdrawalsByOriginIds([originId1, originId2]) |                                                                          |
 | 🔒  | Fundings                         | ☑️  |                                                               |                                                                          |
 | 🔒  | User Trades                      |     |                                                               |                                                                          |
 | 🔒  | - by book                        | ✅  | userTrades.getUserTrades('btc_mxn', params?)                  | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`              |
