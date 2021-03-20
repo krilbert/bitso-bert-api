@@ -7,9 +7,9 @@ The first step will be to get your API Keys (for private endpoints). In order to
 You will need the following environment variables in your project
 
 ```
-API_KEY=""
-API_SECRET=""
-API_URL="https://api.bitso.com"
+BITSO_API_KEY=""
+BITSO_API_SECRET=""
+BITSO_API_URL="https://api.bitso.com"
 ```
 
 > When working on integrations, bitso recommends that you use their dev server before running your code against production. The URL for this server is https://api-dev.bitso.com/v3/
