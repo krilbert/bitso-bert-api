@@ -7,7 +7,7 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
     path: string,
     queryParams?: BitsoQueryParams,
     bodyParams?: BitsoBodyParams,
-  ): Promise<BitsoResponse<T>> {
+  ): Promise<T> {
     if (isPrivate && (!process.env.BITSO_API_KEY || !process.env.BITSO_API_SECRET))
       throw new Error('[BITSO_API_KEY, BITSO_API_SECRET] enviroment variables are required for private endpoints')
 
@@ -44,9 +44,9 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
       const response = await fetch(url, config)
       const data = await response.json()
       if (response.ok) {
-        return camelcaseKeys(data, { deep: true })
+        return camelcaseKeys(data.payload, { deep: true })
       } else {
-        return data
+        return Promise.reject(data.error)
       }
     } catch (err) {
       return Promise.reject(new Error(err))

@@ -21,12 +21,11 @@ npm install bitso-bert-api
 usage
 
 ```javascript
-const ticker = await BitsoAPI.public.getTicker('btc_mxn')
-if (ticker.success) {
-  const { book, last, volume, low, high } = ticker.payload
-  // ...
-} else {
-  console.log(ticker.error)
+try {
+  const ticker = await BitsoApi.public.getTicker('btc_mxn')
+  const { book, last, volume, low, high } = ticker
+} catch (err) {
+  const { code, message } = err
 }
 ```
 

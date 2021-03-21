@@ -1,4 +1,4 @@
-type PromiseResponse<T> = Promise<BitsoResponse<T>>
+type PromiseResponse<T> = Promise<T>
 
 type BitsoQueryParams = Record<string, any>
 type BitsoBodyParams = Record<string, any>
