@@ -2,6 +2,9 @@ import crypto from 'crypto'
 import camelcaseKeys from 'camelcase-keys'
 import fetch, { RequestInit } from 'node-fetch'
 
+type BitsoQueryParams = Record<string, any>
+type BitsoBodyParams = Record<string, any>
+
 const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) => {
   return async function request<T>(
     path: string,

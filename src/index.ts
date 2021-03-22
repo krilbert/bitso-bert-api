@@ -1,4 +1,5 @@
 import { privateDelete, privateGet, privatePost, publicGet } from './api-client'
+import { BitsoAPI } from './types/bitso-bert-api.types'
 
 const BitsoAPI: BitsoAPI = {
   public: {
