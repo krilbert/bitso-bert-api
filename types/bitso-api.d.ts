@@ -89,6 +89,7 @@ interface BitsoAPI {
       cancelOrdersById: (oids: string[]) => PromiseResponse<string[]>
       cancelOrdersByOrderId: (originIds: string[]) => PromiseResponse<string[]>
     }
+    getFundingDestination: (currency: Currency) => PromiseResponse<FundingDestination>
     getBankCodes: () => PromiseResponse<BankCode[]>
   }
 }

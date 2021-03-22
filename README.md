@@ -82,7 +82,7 @@ The API is divided in two sections: `public` and `private`
 | 🔒  | - by list of oids                | ✅  | cancelOrder.cancelOrdersById([oid1, oid2])                    |                                                                                         |
 | 🔒  | - by list of origin_ids          | ✅  | cancelOrder.cancelOrdersByOrderId([originId1, originId2])     |                                                                                         |
 | 🔒  | Place an Order                   | ☑️  |                                                               |                                                                                         |
-| 🔒  | Funding Destination              | ☑️  |                                                               |                                                                                         |
+| 🔒  | Funding Destination              | ✅  | getFundingDestination(currency)                               |                                                                                         |
 | 🔒  | Crypto Withdrawals               | ☑️  |                                                               |                                                                                         |
 | 🔒  | SPEI Withdrawal                  | ☑️  |                                                               |                                                                                         |
 | 🔒  | Bank Codes                       | ✅  | getBankCodes()                                                |                                                                                         |

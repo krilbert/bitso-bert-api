@@ -377,3 +377,8 @@ interface CompleteFunding extends BaseFunding {
 interface MobilePhoneNumber {
   phone: string
 }
+
+interface FundingDestination {
+  accountIdentifierName: string
+  accountIdentifier: string
+}

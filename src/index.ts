@@ -54,6 +54,7 @@ const BitsoAPI: BitsoAPI = {
       cancelOrdersById: (oids) => privateDelete('/orders', { oids: oids.join(',') }),
       cancelOrdersByOrderId: (originIds) => privateDelete('/orders', { origin_ids: originIds.join(',') }),
     },
+    getFundingDestination: (currency) => privateGet('/funding_destination', { fund_currency: currency }),
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },
 }
