@@ -58,36 +58,36 @@ interface BitsoAPI {
       getWithdrawals: (params?: PaginationQueryParams) => PromiseResponse<LedgerWithdrawal[]>
     }
     withdrawals: {
-      getWithdrawals: (params?: WithdrawalsQueryParams) => PromiseResponse<Withdrawal[]>
-      getWithdrawalById: (wid: string) => PromiseResponse<Withdrawal>
-      getWithdrawalsById: (wid: string[]) => PromiseResponse<Withdrawal[]>
-      getWithdrawalsByOriginIds: (originIds: string[]) => PromiseResponse<Withdrawal[]>
+      getAll: (params?: WithdrawalsQueryParams) => PromiseResponse<Withdrawal[]>
+      getByWid: (wid: string) => PromiseResponse<Withdrawal>
+      getByWids: (wid: string[]) => PromiseResponse<Withdrawal[]>
+      getByOriginIds: (originIds: string[]) => PromiseResponse<Withdrawal[]>
     }
     fundings: {
-      getFundings: (params?: FundingsQueryParams) => PromiseResponse<Funding[]>
-      getFundingById: (fid: string) => PromiseResponse<Funding>
-      getFundingsByIds: (fids: string[]) => PromiseResponse<Funding[]>
+      getAll: (params?: FundingsQueryParams) => PromiseResponse<Funding[]>
+      getByFid: (fid: string) => PromiseResponse<Funding>
+      getByFids: (fids: string[]) => PromiseResponse<Funding[]>
     }
     orderTrades: {
-      getOrderTrades: (oid: string) => PromiseResponse<OrderTrade[]>
-      getOrderTradesByOriginId: (originId: string) => PromiseResponse<OrderTrade[]>
+      getByOid: (oid: string) => PromiseResponse<OrderTrade[]>
+      getByOriginId: (originId: string) => PromiseResponse<OrderTrade[]>
     }
     userTrades: {
-      getUserTrades: (book: Book, params?: PaginationQueryParams) => PromiseResponse<UserTrade[]>
-      getUserTradeById: (tid: string) => PromiseResponse<UserTrade>
-      getUserTradesById: (tids: string[]) => PromiseResponse<UserTrade[]>
+      getByBook: (book: Book, params?: PaginationQueryParams) => PromiseResponse<UserTrade[]>
+      getByTid: (tid: string) => PromiseResponse<UserTrade>
+      getByTids: (tids: string[]) => PromiseResponse<UserTrade[]>
     }
     getOpenOrders: (params?: OpenOrdersQueryParams) => PromiseResponse<OpenOrder[]>
     lookupOrders: {
-      getOrder: (oid: string) => PromiseResponse<Order>
-      getOrders: (oids: string[]) => PromiseResponse<Order[]>
-      getOrdersByOriginId: (originIds: string[]) => PromiseResponse<Order[]>
+      getByOid: (oid: string) => PromiseResponse<Order>
+      getByOids: (oids: string[]) => PromiseResponse<Order[]>
+      getByOriginIds: (originIds: string[]) => PromiseResponse<Order[]>
     }
     cancelOrder: {
-      cancelAllOrders: () => PromiseResponse<string[]>
-      cancelOrder: (oid: string) => PromiseResponse<string[]>
-      cancelOrdersById: (oids: string[]) => PromiseResponse<string[]>
-      cancelOrdersByOrderId: (originIds: string[]) => PromiseResponse<string[]>
+      cancelAll: () => PromiseResponse<string[]>
+      cancelByOid: (oid: string) => PromiseResponse<string[]>
+      cancelByOids: (oids: string[]) => PromiseResponse<string[]>
+      cancelByOrderIds: (originIds: string[]) => PromiseResponse<string[]>
     }
     getFundingDestination: (currency: Currency) => PromiseResponse<FundingDestination>
     getBankCodes: () => PromiseResponse<BankCode[]>
