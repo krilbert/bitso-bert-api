@@ -31,6 +31,7 @@ import {
   BitsoWithdrawal,
   BitsoOhlcItem,
   BitsoSettings,
+  Countries,
 } from './responses.types'
 
 type ChartingTimeFrame = keyof typeof chartingTimeFrame
@@ -100,5 +101,8 @@ export interface BitsoAPI {
       endDate: Date,
     ) => Promise<BitsoOhlcItem[]>
     getSettings: () => Promise<BitsoSettings>
+    catalogues: {
+      getCountries: () => Promise<Countries>
+    }
   }
 }

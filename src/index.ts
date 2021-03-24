@@ -67,6 +67,9 @@ const BitsoAPI: BitsoAPI = {
       return publicGet('/ohlc', { book, time_bucket, start, end })
     },
     getSettings: () => privateGet('/settings'),
+    catalogues: {
+      getCountries: () => publicGet('/catalogues/countries'),
+    },
   },
 }
 

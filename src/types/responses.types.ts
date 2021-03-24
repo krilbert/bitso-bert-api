@@ -5,6 +5,7 @@ import {
   BitsoCurrency,
   BitsoMakerSide,
   CellphoneStatus,
+  CountryCode,
   DocumentStatus,
   EmailStatus,
   FundingStatus,
@@ -425,4 +426,19 @@ export interface BitsoSettings {
     withdrawalFailed: boolean
     withdrawalRequest: boolean
   }
+}
+
+// Country
+interface Country {
+  en: string
+  es: string
+  pt: string
+  iso3: string
+  phone: string
+  restrictedCountry?: boolean
+  defaultCurrency?: string
+}
+
+export interface Countries {
+  countries: Record<CountryCode, Country>
 }
