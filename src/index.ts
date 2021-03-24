@@ -69,6 +69,7 @@ const BitsoAPI: BitsoAPI = {
     getSettings: () => privateGet('/settings'),
     catalogues: {
       getCountries: () => publicGet('/catalogues/countries'),
+      getCurrencies: () => publicGet('/catalogues/currencies'),
     },
   },
 }

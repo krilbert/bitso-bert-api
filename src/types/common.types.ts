@@ -27,6 +27,7 @@ export type BitsoBook =
 type Major = 'btc' | 'eth' | 'xrp' | 'ltc' | 'bch' | 'tusd' | 'bat' | 'dai' | 'gnt' | 'mana'
 type Minor = 'mxn' | 'usd' | 'ars' | 'brl' | Major
 export type BitsoCurrency = Minor
+export type BitsoCurrencyType = 'fiat' | 'crypto'
 
 export type BitsoSortDirection = 'asc' | 'desc'
 export type BitsoChart = 'candle' | 'depth'

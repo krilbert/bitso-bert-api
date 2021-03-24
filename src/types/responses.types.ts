@@ -3,6 +3,7 @@ import {
   BitsoBook,
   BitsoChart,
   BitsoCurrency,
+  BitsoCurrencyType,
   BitsoMakerSide,
   CellphoneStatus,
   CountryCode,
@@ -441,4 +442,21 @@ interface Country {
 
 export interface Countries {
   countries: Record<CountryCode, Country>
+}
+
+// Bitso currencies
+
+interface CurrencyMetadata {
+  code: BitsoCurrency
+  fullName: string
+  color: string
+  precision: number
+  type: BitsoCurrencyType
+}
+export interface BitsoCurrencies {
+  currencies: {
+    allowedAsPreferred: BitsoCurrency[]
+    supported: BitsoCurrency[]
+    metadata: CurrencyMetadata[]
+  }
 }
