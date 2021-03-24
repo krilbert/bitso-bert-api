@@ -1,4 +1,4 @@
-import { privateDelete, privateGet, privatePost, publicGet } from './api-client'
+import { basicGet, privateDelete, privateGet, privatePost, publicGet } from './api-client'
 import { BitsoAPI } from './types/bitso-bert-api.types'
 
 const BitsoAPI: BitsoAPI = {
@@ -67,6 +67,7 @@ const BitsoAPI: BitsoAPI = {
         const end = endDate.getTime()
         return publicGet('/ohlc', { book, time_bucket, start, end })
       },
+      getChartTrades: (book, timeframe) => basicGet(`https://bitso.com/trade/chartJSON/${book}/${timeframe}`),
     },
     getSettings: () => privateGet('/settings'),
     catalogues: {

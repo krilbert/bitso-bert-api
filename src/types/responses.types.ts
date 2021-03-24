@@ -481,3 +481,16 @@ export interface BitsoAvailableCurrencyConversionsPrivate {
     currencies: BitsoAvailableCurrencyPrivate[]
   }
 }
+
+// Chart Trade
+export interface BitsoTradeChartItem {
+  date: string
+  dated: string
+  value: string
+  volume: string
+  open: string
+  low: string
+  high: string
+  close: string
+  vwap: string
+}

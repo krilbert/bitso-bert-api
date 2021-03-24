@@ -57,7 +57,29 @@ const client = (method: 'GET' | 'POST' | 'DELETE', isPrivate: boolean = false) =
   }
 }
 
+const basicClient = (method: 'GET') => {
+  return async function request<T>(path: string): Promise<T> {
+    const config: RequestInit = {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+    }
+    try {
+      const response = await fetch(path, config)
+      const data = await response.json()
+      if (response.ok) {
+        return camelcaseKeys(data, { deep: true })
+      } else {
+        return Promise.reject(data)
+      }
+    } catch (err) {
+      return Promise.reject(new Error(err))
+    }
+  }
+}
+
 export const publicGet = client('GET')
 export const privateGet = client('GET', true)
 export const privateDelete = client('DELETE', true)
 export const privatePost = client('POST', true)
+
+export const basicGet = basicClient('GET')

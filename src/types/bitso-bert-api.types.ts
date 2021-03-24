@@ -35,6 +35,7 @@ import {
   BitsoCurrencies,
   BitsoAvailableCurrencyConversionsPublic,
   BitsoAvailableCurrencyConversionsPrivate,
+  BitsoTradeChartItem,
 } from './responses.types'
 
 type ChartingTimeFrame = keyof typeof chartingTimeFrame
@@ -104,6 +105,7 @@ export interface BitsoAPI {
         startDate: Date,
         endDate: Date,
       ) => Promise<BitsoOhlcItem[]>
+      getChartTrades: (book: BitsoBook, timeframe: '1month' | '3months' | '1year') => Promise<BitsoTradeChartItem[]>
     }
     getSettings: () => Promise<BitsoSettings>
     catalogues: {
