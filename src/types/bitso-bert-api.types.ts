@@ -97,12 +97,14 @@ export interface BitsoAPI {
     getBankCodes: () => Promise<BitsoBankCode[]>
   }
   undocumented: {
-    getChartInfo: (
-      book: BitsoBook,
-      timeBucket: ChartingTimeFrame,
-      startDate: Date,
-      endDate: Date,
-    ) => Promise<BitsoOhlcItem[]>
+    charts: {
+      getChartInfo: (
+        book: BitsoBook,
+        timeBucket: ChartingTimeFrame,
+        startDate: Date,
+        endDate: Date,
+      ) => Promise<BitsoOhlcItem[]>
+    }
     getSettings: () => Promise<BitsoSettings>
     catalogues: {
       availableCurrencyConversions: {

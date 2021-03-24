@@ -59,12 +59,14 @@ const BitsoAPI: BitsoAPI = {
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },
   undocumented: {
-    getChartInfo: (book, timeBucket, startDate, endDate) => {
-      if (endDate <= startDate) throw new Error('date range is incorrect')
-      const time_bucket = chartingTimeFrame[timeBucket]
-      const start = startDate.getTime()
-      const end = endDate.getTime()
-      return publicGet('/ohlc', { book, time_bucket, start, end })
+    charts: {
+      getChartInfo: (book, timeBucket, startDate, endDate) => {
+        if (endDate <= startDate) throw new Error('date range is incorrect')
+        const time_bucket = chartingTimeFrame[timeBucket]
+        const start = startDate.getTime()
+        const end = endDate.getTime()
+        return publicGet('/ohlc', { book, time_bucket, start, end })
+      },
     },
     getSettings: () => privateGet('/settings'),
     catalogues: {

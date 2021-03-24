@@ -98,15 +98,16 @@ The API is divided in two sections: `public`, `private` and `undocumented`
 
 ##### Undocumented API
 
-|     |                                  |     |                                                    |     |
-| --- | -------------------------------- | --- | -------------------------------------------------- | --- |
-|     | Charting Information             | ✅  | getChartInfo(book, timeBucket, startDate, endDate) |     |
-|     | Catalogues                       |     |                                                    |     |
-|     | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.public()   |     |
-| 🔒  | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.private()  |     |
-|     | - Countries                      | ✅  | catalogues.getCountries()                          |     |
-|     | - Currencies                     | ✅  | catalogues.getCurrencies()                         |     |
-| 🔒  | Settings                         | ✅  | getSettings()                                      |     |
+|     |                                  |     |                                                           |     |
+| --- | -------------------------------- | --- | --------------------------------------------------------- | --- |
+|     | Charts                           |     |                                                           |     |
+|     | - Charting Information           | ✅  | charts.getChartInfo(book, timeBucket, startDate, endDate) |     |
+|     | Catalogues                       |     |                                                           |     |
+|     | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.public()          |     |
+| 🔒  | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.private()         |     |
+|     | - Countries                      | ✅  | catalogues.getCountries()                                 |     |
+|     | - Currencies                     | ✅  | catalogues.getCurrencies()                                |     |
+| 🔒  | Settings                         | ✅  | getSettings()                                             |     |
 
 ### Want to support this project?
 
