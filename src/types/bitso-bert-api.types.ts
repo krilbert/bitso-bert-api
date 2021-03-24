@@ -30,6 +30,7 @@ import {
   BitsoUserTrade,
   BitsoWithdrawal,
   BitsoOhlcItem,
+  BitsoSettings,
 } from './responses.types'
 
 type ChartingTimeFrame = keyof typeof chartingTimeFrame
@@ -98,5 +99,6 @@ export interface BitsoAPI {
       startDate: Date,
       endDate: Date,
     ) => Promise<BitsoOhlcItem[]>
+    getSettings: () => Promise<BitsoSettings>
   }
 }

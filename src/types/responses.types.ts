@@ -386,3 +386,43 @@ export interface BitsoOhlcItem {
   volume: string
   vwap: string
 }
+
+// Settings
+export interface BitsoSettings {
+  account: {
+    cryptoKnowledge: unknown
+    fiatEnabledCurrencies: BitsoCurrency[]
+    language: string
+    lastShownLedgerEntry: unknown
+    preferredCurrency: BitsoCurrency
+    usageType: string
+    usersLookup: boolean
+  }
+  flags: {
+    riskWarningCryptoAccepted: boolean
+    riskWarningTradingAccepted: boolean
+    stopLimitWarningAccepted: boolean
+    stopLossWarningAccepted: boolean
+    userIntentionBuyer: boolean
+    userIntentionHolder: boolean
+    userIntentionSender: boolean
+    userIntentionTrader: boolean
+  }
+  modals: {
+    showLoginModalIntentionsCryptoKnwl: boolean
+  }
+  notifications: {
+    bitsoTransfer: boolean
+    bitsoTransferFailed: boolean
+    completeOrder: boolean
+    fundingComplete: boolean
+    fundingFailed: boolean
+    fundingRequest: boolean
+    marketing: boolean
+    partialOrder: boolean
+    referral: boolean
+    withdrawalComplete: boolean
+    withdrawalFailed: boolean
+    withdrawalRequest: boolean
+  }
+}

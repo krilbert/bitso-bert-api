@@ -66,6 +66,7 @@ const BitsoAPI: BitsoAPI = {
       const end = endDate.getTime()
       return publicGet('/ohlc', { book, time_bucket, start, end })
     },
+    getSettings: () => privateGet('/settings'),
   },
 }
 

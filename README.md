@@ -101,6 +101,7 @@ The API is divided in two sections: `public`, `private` and `undocumented`
 |     |                      |     |                                                    |     |
 | --- | -------------------- | --- | -------------------------------------------------- | --- |
 |     | Charting Information | ✅  | getChartInfo(book, timeBucket, startDate, endDate) |     |
+| 🔒  | Settings             | ✅  | getSettings()                                      |     |
 
 ### Want to support this project?
 
