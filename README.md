@@ -102,6 +102,7 @@ The API is divided in two sections: `public`, `private` and `undocumented`
 | --- | -------------------------------- | --- | --------------------------------------------------------- | --- |
 |     | Charts                           |     |                                                           |     |
 |     | - Charting Information           | ✅  | charts.getChartInfo(book, timeBucket, startDate, endDate) |     |
+|     | - Charting Trades                | ✅  | charts.getChartTrades(book, timeframe)                    |     |
 |     | Catalogues                       |     |                                                           |     |
 |     | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.public()          |     |
 | 🔒  | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.private()         |     |
