@@ -1,5 +1,5 @@
 import { chartingTimeFrame } from '..'
-import { BitsoBook, BitsoCurrency } from './common.types'
+import { BitsoBook, BitsoCurrency, BitsoOrderExecution } from './common.types'
 import {
   FundingsQueryParams,
   OpenOrdersQueryParams,
@@ -36,6 +36,7 @@ import {
   BitsoAvailableCurrencyConversionsPublic,
   BitsoAvailableCurrencyConversionsPrivate,
   BitsoTradeChartItem,
+  BitsoOrderPlaced,
 } from './responses.types'
 
 type ChartingTimeFrame = keyof typeof chartingTimeFrame
@@ -93,6 +94,46 @@ export interface BitsoAPI {
       cancelByOid: (oid: string) => Promise<string[]>
       cancelByOids: (oids: string[]) => Promise<string[]>
       cancelByOrderIds: (originIds: string[]) => Promise<string[]>
+    }
+    placeOrder: {
+      buy: {
+        market: (book: BitsoBook, amount: string, currency: BitsoCurrency) => Promise<BitsoOrderPlaced>
+        limit: (
+          book: BitsoBook,
+          amount: string,
+          currency: BitsoCurrency,
+          price: string,
+          executionType?: BitsoOrderExecution,
+        ) => Promise<BitsoOrderPlaced>
+        stopLoss: (book: BitsoBook, amount: string, stopPrice: string) => Promise<BitsoOrderPlaced>
+        stopLimit: (
+          book: BitsoBook,
+          amount: string,
+          currency: BitsoCurrency,
+          price: string,
+          stopPrice: string,
+          executionType?: BitsoOrderExecution,
+        ) => Promise<BitsoOrderPlaced>
+      }
+      sell: {
+        market: (book: BitsoBook, amount: string, currency: BitsoCurrency) => Promise<BitsoOrderPlaced>
+        limit: (
+          book: BitsoBook,
+          amount: string,
+          currency: BitsoCurrency,
+          price: string,
+          executionType?: BitsoOrderExecution,
+        ) => Promise<BitsoOrderPlaced>
+        stopLoss: (book: BitsoBook, amount: string, stopPrice: string) => Promise<BitsoOrderPlaced>
+        stopLimit: (
+          book: BitsoBook,
+          amount: string,
+          currency: BitsoCurrency,
+          price: string,
+          stopPrice: string,
+          executionType?: BitsoOrderExecution,
+        ) => Promise<BitsoOrderPlaced>
+      }
     }
     getFundingDestination: (currency: BitsoCurrency) => Promise<BitsoFundingDestination>
     getBankCodes: () => Promise<BitsoBankCode[]>

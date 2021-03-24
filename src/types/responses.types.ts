@@ -494,3 +494,8 @@ export interface BitsoTradeChartItem {
   close: string
   vwap: string
 }
+
+// Place Order
+export interface BitsoOrderPlaced {
+  oid: string
+}

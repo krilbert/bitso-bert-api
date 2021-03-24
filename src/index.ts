@@ -1,5 +1,6 @@
 import { basicGet, privateDelete, privateGet, privatePost, publicGet } from './api-client'
 import { BitsoAPI } from './types/bitso-bert-api.types'
+import { generatePlaceOrderParams } from './utils'
 
 const BitsoAPI: BitsoAPI = {
   public: {
@@ -54,6 +55,66 @@ const BitsoAPI: BitsoAPI = {
       cancelByOid: (oid) => privateDelete(`/orders/${oid}`),
       cancelByOids: (oids) => privateDelete('/orders', { oids: oids.join(',') }),
       cancelByOrderIds: (originIds) => privateDelete('/orders', { origin_ids: originIds.join(',') }),
+    },
+    placeOrder: {
+      buy: {
+        market: (book, amount, currency) => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = { ...genParams, side: 'buy', type: 'market' }
+          return privatePost('/orders', undefined, params)
+        },
+        limit: (book, amount, currency, price, executionType = 'goodtillcancelled') => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = { ...genParams, side: 'buy', type: 'limit', price, time_in_force: executionType }
+          return privatePost('/orders', undefined, params)
+        },
+        stopLoss: (book, amount, stopPrice) => {
+          const genParams = generatePlaceOrderParams(book, amount)
+          const params = { ...genParams, side: 'buy', type: 'limit', stop: stopPrice }
+          return privatePost('/orders', undefined, params)
+        },
+        stopLimit: (book, amount, currency, price, stopPrice, executionType = 'goodtillcancelled') => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = {
+            ...genParams,
+            side: 'buy',
+            type: 'limit',
+            price,
+            stop: stopPrice,
+            time_in_force: executionType,
+          }
+          return privatePost('/orders', undefined, params)
+        },
+      },
+      sell: {
+        market: (book, amount, currency) => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = { ...genParams, side: 'sell', type: 'market' }
+          return privatePost('/orders', undefined, params)
+        },
+        limit: (book, amount, currency, price, executionType = 'goodtillcancelled') => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = { ...genParams, side: 'sell', type: 'limit', price, time_in_force: executionType }
+          return privatePost('/orders', undefined, params)
+        },
+        stopLoss: (book, amount, stopPrice) => {
+          const genParams = generatePlaceOrderParams(book, amount)
+          const params = { ...genParams, side: 'sell', type: 'limit', stop: stopPrice }
+          return privatePost('/orders', undefined, params)
+        },
+        stopLimit: (book, amount, currency, price, stopPrice, executionType = 'goodtillcancelled') => {
+          const genParams = generatePlaceOrderParams(book, amount, currency)
+          const params = {
+            ...genParams,
+            side: 'sell',
+            type: 'limit',
+            price,
+            stop: stopPrice,
+            time_in_force: executionType,
+          }
+          return privatePost('/orders', undefined, params)
+        },
+      },
     },
     getFundingDestination: (currency) => privateGet('/funding_destination', { fund_currency: currency }),
     getBankCodes: () => privateGet('/mx_bank_codes'),

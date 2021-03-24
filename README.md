@@ -48,53 +48,57 @@ The API is divided in two sections: `public`, `private` and `undocumented`
 
 ##### Private API
 
-|     |                                  |     |                                                      |                                                                                         |
-| --- | -------------------------------- | --- | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| 🔒  | Account Status                   | ✅  | getAccountStatus()                                   |                                                                                         |
-| 🔒  | Document Upload                  | ☑️  |                                                      |                                                                                         |
-| 🔒  | Mobile Phone Number Registration | ✅  | mobilePhone.register(phoneNumber)                    |                                                                                         |
-| 🔒  | Mobile Phone Number Verification | ✅  | mobilePhone.verify(verificationCode)                 |                                                                                         |
-| 🔒  | Account Balance                  | ✅  | getBalance()                                         |                                                                                         |
-| 🔒  | Fees                             | ✅  | getFees()                                            |                                                                                         |
-| 🔒  | Ledger                           |     |                                                      |                                                                                         |
-| 🔒  | - all                            | ✅  | ledger.getLedger(params?)                            | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | - trades                         | ✅  | ledger.getTrades(params?)                            | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | - fees                           | ✅  | ledger.getFees(params?)                              | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | - fundings                       | ✅  | ledger.getFundings(params?)                          | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | - withdrawals                    | ✅  | ledger.getWithdrawals(params?)                       | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | Withdrawals                      |     |                                                      |                                                                                         |
-| 🔒  | - all                            | ✅  | withdrawals.getAll(params?)                          | `{ marker?: string, limit?: number, status?: string, method?: string }`                 |
-| 🔒  | - by wid                         | ✅  | withdrawals.getByWid(wid)                            |                                                                                         |
-| 🔒  | - by wids                        | ✅  | withdrawals.getByWids([wid1, wid2])                  |                                                                                         |
-| 🔒  | - by origin_ids                  | ✅  | withdrawals.getByOriginIds([originId1, originId2])   |                                                                                         |
-| 🔒  | Fundings                         |     |                                                      |                                                                                         |
-| 🔒  | - all                            | ✅  | fundings.getAll(params?)                             | `{ marker?: string, limit?: number, status?: string, method?: string, txids?: string }` |
-| 🔒  | - by fid                         | ✅  | fundings.getByFid(fid)                               |                                                                                         |
-| 🔒  | - by fids                        | ✅  | fundings.getByFids([fid1, fid2])                     |                                                                                         |
-| 🔒  | User Trades                      |     |                                                      |                                                                                         |
-| 🔒  | - by book                        | ✅  | userTrades.getByBook('btc_mxn', params?)             | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
-| 🔒  | - by id                          | ✅  | userTrades.getByTid(tid)                             |                                                                                         |
-| 🔒  | - by ids                         | ✅  | userTrades.getByTids([tid1, tid2])                   |                                                                                         |
-| 🔒  | Order Trades                     |     |                                                      |                                                                                         |
-| 🔒  | - by oid                         | ✅  | orderTrades.getByOid(oid)                            |                                                                                         |
-| 🔒  | - by origin id                   | ✅  | orderTrades.getByOriginId(originId)                  |                                                                                         |
-| 🔒  | Open Orders                      | ✅  | getOpenOrders(params?)                               | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number, book?: Book }`                |
-| 🔒  | Lookup Orders                    |     |                                                      |                                                                                         |
-| 🔒  | - by oid                         | ✅  | lookupOrders.getByOid(oid)                           |                                                                                         |
-| 🔒  | - by list of oids                | ✅  | lookupOrders.getByOids([oid1, oid2])                 |                                                                                         |
-| 🔒  | - by list of origin_ids          | ✅  | lookupOrders.getByOriginIds([originId1, originId2])  |                                                                                         |
-| 🔒  | Cancel Order                     |     |                                                      |                                                                                         |
-| 🔒  | - all                            | ✅  | cancelOrder.cancelAll()                              |                                                                                         |
-| 🔒  | - by oid                         | ✅  | cancelOrder.cancelByOid(oid)                         |                                                                                         |
-| 🔒  | - by list of oids                | ✅  | cancelOrder.cancelByOids([oid1, oid2])               |                                                                                         |
-| 🔒  | - by list of origin_ids          | ✅  | cancelOrder.cancelByOrderIds([originId1, originId2]) |                                                                                         |
-| 🔒  | Place an Order                   | ☑️  |                                                      |                                                                                         |
-| 🔒  | Funding Destination              | ✅  | getFundingDestination(currency)                      |                                                                                         |
-| 🔒  | Crypto Withdrawals               | ☑️  |                                                      |                                                                                         |
-| 🔒  | SPEI Withdrawal                  | ☑️  |                                                      |                                                                                         |
-| 🔒  | Bank Codes                       | ✅  | getBankCodes()                                       |                                                                                         |
-| 🔒  | Debit Card Withdrawal            | ☑️  |                                                      |                                                                                         |
-| 🔒  | Phone Number Withdrawal          | ☑️  |                                                      |                                                                                         |
+|     |                                  |     |                                                                     |                                                                                            |
+| --- | -------------------------------- | --- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 🔒  | Account Status                   | ✅  | getAccountStatus()                                                  |                                                                                            |
+| 🔒  | Document Upload                  | ☑️  |                                                                     |                                                                                            |
+| 🔒  | Mobile Phone Number Registration | ✅  | mobilePhone.register(phoneNumber)                                   |                                                                                            |
+| 🔒  | Mobile Phone Number Verification | ✅  | mobilePhone.verify(verificationCode)                                |                                                                                            |
+| 🔒  | Account Balance                  | ✅  | getBalance()                                                        |                                                                                            |
+| 🔒  | Fees                             | ✅  | getFees()                                                           |                                                                                            |
+| 🔒  | Ledger                           |     |                                                                     |                                                                                            |
+| 🔒  | - all                            | ✅  | ledger.getLedger(params?)                                           | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | - trades                         | ✅  | ledger.getTrades(params?)                                           | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | - fees                           | ✅  | ledger.getFees(params?)                                             | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | - fundings                       | ✅  | ledger.getFundings(params?)                                         | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | - withdrawals                    | ✅  | ledger.getWithdrawals(params?)                                      | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | Withdrawals                      |     |                                                                     |                                                                                            |
+| 🔒  | - all                            | ✅  | withdrawals.getAll(params?)                                         | `{ marker?: string, limit?: number, status?: string, method?: string }`                    |
+| 🔒  | - by wid                         | ✅  | withdrawals.getByWid(wid)                                           |                                                                                            |
+| 🔒  | - by wids                        | ✅  | withdrawals.getByWids([wid1, wid2])                                 |                                                                                            |
+| 🔒  | - by origin_ids                  | ✅  | withdrawals.getByOriginIds([originId1, originId2])                  |                                                                                            |
+| 🔒  | Fundings                         |     |                                                                     |                                                                                            |
+| 🔒  | - all                            | ✅  | fundings.getAll(params?)                                            | `{ marker?: string, limit?: number, status?: string, method?: string, txids?: string }`    |
+| 🔒  | - by fid                         | ✅  | fundings.getByFid(fid)                                              |                                                                                            |
+| 🔒  | - by fids                        | ✅  | fundings.getByFids([fid1, fid2])                                    |                                                                                            |
+| 🔒  | User Trades                      |     |                                                                     |                                                                                            |
+| 🔒  | - by book                        | ✅  | userTrades.getByBook('btc_mxn', params?)                            | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                                |
+| 🔒  | - by id                          | ✅  | userTrades.getByTid(tid)                                            |                                                                                            |
+| 🔒  | - by ids                         | ✅  | userTrades.getByTids([tid1, tid2])                                  |                                                                                            |
+| 🔒  | Order Trades                     |     |                                                                     |                                                                                            |
+| 🔒  | - by oid                         | ✅  | orderTrades.getByOid(oid)                                           |                                                                                            |
+| 🔒  | - by origin id                   | ✅  | orderTrades.getByOriginId(originId)                                 |                                                                                            |
+| 🔒  | Open Orders                      | ✅  | getOpenOrders(params?)                                              | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number, book?: Book }`                   |
+| 🔒  | Lookup Orders                    |     |                                                                     |                                                                                            |
+| 🔒  | - by oid                         | ✅  | lookupOrders.getByOid(oid)                                          |                                                                                            |
+| 🔒  | - by list of oids                | ✅  | lookupOrders.getByOids([oid1, oid2])                                |                                                                                            |
+| 🔒  | - by list of origin_ids          | ✅  | lookupOrders.getByOriginIds([originId1, originId2])                 |                                                                                            |
+| 🔒  | Cancel Order                     |     |                                                                     |                                                                                            |
+| 🔒  | - all                            | ✅  | cancelOrder.cancelAll()                                             |                                                                                            |
+| 🔒  | - by oid                         | ✅  | cancelOrder.cancelByOid(oid)                                        |                                                                                            |
+| 🔒  | - by list of oids                | ✅  | cancelOrder.cancelByOids([oid1, oid2])                              |                                                                                            |
+| 🔒  | - by list of origin_ids          | ✅  | cancelOrder.cancelByOrderIds([originId1, originId2])                |                                                                                            |
+| 🔒  | Place an Order (buy, sell)       |     |                                                                     |                                                                                            |
+| 🔒  | - market                         | ✅  | market(book, amount, currency)                                      |                                                                                            |
+| 🔒  | - limit                          | ✅  | limit(book, amount, currency, price, executionType?)                | executionType = `'goodtillcancelled' \| 'fillorkill' \| 'immediateorcancel' \| 'postonly'` |
+| 🔒  | - stopLoss                       | ✅  | stopLoss(book, amount, stopPrice)                                   |                                                                                            |
+| 🔒  | - stopLimit                      | ✅  | stopLimit(book, amount, currency, price, stopPrice, executionType?) | executionType = `'goodtillcancelled' \| 'fillorkill' \| 'immediateorcancel' \| 'postonly'` |
+| 🔒  | Funding Destination              | ✅  | getFundingDestination(currency)                                     |                                                                                            |
+| 🔒  | Crypto Withdrawals               | ☑️  |                                                                     |                                                                                            |
+| 🔒  | SPEI Withdrawal                  | ☑️  |                                                                     |                                                                                            |
+| 🔒  | Bank Codes                       | ✅  | getBankCodes()                                                      |                                                                                            |
+| 🔒  | Debit Card Withdrawal            | ☑️  |                                                                     |                                                                                            |
+| 🔒  | Phone Number Withdrawal          | ☑️  |                                                                     |                                                                                            |
 
 ##### Undocumented API
 
