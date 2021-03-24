@@ -68,6 +68,10 @@ const BitsoAPI: BitsoAPI = {
     },
     getSettings: () => privateGet('/settings'),
     catalogues: {
+      availableCurrencyConversions: {
+        public: () => publicGet('/catalogues/available_currency_conversions'),
+        private: () => privateGet('/catalogues/available_currency_conversions'),
+      },
       getCountries: () => publicGet('/catalogues/countries'),
       getCurrencies: () => publicGet('/catalogues/currencies'),
     },

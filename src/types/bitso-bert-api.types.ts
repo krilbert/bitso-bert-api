@@ -33,6 +33,8 @@ import {
   BitsoSettings,
   Countries,
   BitsoCurrencies,
+  BitsoAvailableCurrencyConversionsPublic,
+  BitsoAvailableCurrencyConversionsPrivate,
 } from './responses.types'
 
 type ChartingTimeFrame = keyof typeof chartingTimeFrame
@@ -103,6 +105,10 @@ export interface BitsoAPI {
     ) => Promise<BitsoOhlcItem[]>
     getSettings: () => Promise<BitsoSettings>
     catalogues: {
+      availableCurrencyConversions: {
+        public: () => Promise<BitsoAvailableCurrencyConversionsPublic>
+        private: () => Promise<BitsoAvailableCurrencyConversionsPrivate>
+      }
       getCountries: () => Promise<Countries>
       getCurrencies: () => Promise<BitsoCurrencies>
     }

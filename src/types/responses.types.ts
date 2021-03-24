@@ -460,3 +460,24 @@ export interface BitsoCurrencies {
     metadata: CurrencyMetadata[]
   }
 }
+
+// Available Currency Conversions
+type BitsoAvailableCurrencyPrivate = CurrencyMetadata & { availableBalance: string }
+
+interface BitsoAvailableConversion {
+  currency: BitsoCurrency
+  allowedConversions: BitsoCurrency[]
+}
+
+export interface BitsoAvailableCurrencyConversionsPublic {
+  availableCurrencyConversions: {
+    availableConversions: BitsoAvailableConversion[]
+    currencies: CurrencyMetadata[]
+  }
+}
+export interface BitsoAvailableCurrencyConversionsPrivate {
+  availableCurrencyConversions: {
+    availableConversions: BitsoAvailableConversion[]
+    currencies: BitsoAvailableCurrencyPrivate[]
+  }
+}
