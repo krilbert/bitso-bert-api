@@ -4,7 +4,7 @@ import {
   BitsoChart,
   BitsoCurrency,
   BitsoCurrencyType,
-  BitsoMakerSide,
+  BitsoSide,
   CellphoneStatus,
   CountryCode,
   DocumentStatus,
@@ -75,7 +75,7 @@ export interface BitsoTrade {
   book: BitsoBook
   createdAt: string
   amount: string
-  makerSide: BitsoMakerSide
+  makerSide: BitsoSide
   price: string
   tid: number
 }
@@ -310,8 +310,8 @@ export interface BitsoOrderTrade {
   tid?: number
   price: string
   originId?: string
-  side: BitsoMakerSide
-  makerSide: BitsoMakerSide
+  side: BitsoSide
+  makerSide: BitsoSide
 }
 
 // User Trade
@@ -328,8 +328,8 @@ export interface BitsoUserTrade {
   tid: number
   price: string
   originId?: string
-  side: BitsoMakerSide
-  makerSide: BitsoMakerSide
+  side: BitsoSide
+  makerSide: BitsoSide
 }
 
 // Open Order
@@ -343,7 +343,7 @@ export interface BitsoOpenOrder {
   price: string
   oid: string
   originId: string
-  side: BitsoMakerSide
+  side: BitsoSide
   status: string
   type: string
 }
@@ -358,7 +358,7 @@ export interface BitsoLookupOrder {
   updatedAt: string
   price: string
   oid: string
-  side: BitsoMakerSide
+  side: BitsoSide
   status: string
   type: string
 }

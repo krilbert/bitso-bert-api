@@ -34,7 +34,7 @@ export type BitsoChart = 'candle' | 'depth'
 
 export type LedgerOperation = 'trade' | 'fee' | 'funding' | 'withdrawal'
 export type MethodFee = 'bind' | 'ted' | 'ca' | 'pix' | 'mt'
-export type BitsoMakerSide = 'buy' | 'sell'
+export type BitsoSide = 'buy' | 'sell'
 
 export type WithdrawalStatus = 'pending' | 'processing' | 'complete' | 'failed'
 export type FundingStatus = 'pending' | 'in_progress' | 'complete' | 'failed'
