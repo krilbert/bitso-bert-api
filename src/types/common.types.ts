@@ -24,7 +24,7 @@ export type BitsoBook =
   | 'btc_brl'
   | 'eth_ars'
 
-type Major = 'btc' | 'eth' | 'xrp' | 'ltc' | 'bch' | 'tusd' | 'bat' | 'dai' | 'gnt' | 'mana'
+type Major = 'btc' | 'eth' | 'xrp' | 'ltc' | 'bch' | 'tusd' | 'bat' | 'dai' | 'mana'
 type Minor = 'mxn' | 'usd' | 'ars' | 'brl' | Major
 export type BitsoCurrency = Minor
 export type BitsoCurrencyType = 'fiat' | 'crypto'
