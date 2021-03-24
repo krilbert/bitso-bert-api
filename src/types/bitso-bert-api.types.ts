@@ -1,3 +1,4 @@
+import { chartingTimeFrame } from '..'
 import { BitsoBook, BitsoCurrency } from './common.types'
 import {
   FundingsQueryParams,
@@ -28,7 +29,10 @@ import {
   BitsoTrade,
   BitsoUserTrade,
   BitsoWithdrawal,
+  BitsoOhlcItem,
 } from './responses.types'
+
+type ChartingTimeFrame = keyof typeof chartingTimeFrame
 
 export interface BitsoAPI {
   public: {
@@ -86,5 +90,13 @@ export interface BitsoAPI {
     }
     getFundingDestination: (currency: BitsoCurrency) => Promise<BitsoFundingDestination>
     getBankCodes: () => Promise<BitsoBankCode[]>
+  }
+  undocumented: {
+    getChartInfo: (
+      book: BitsoBook,
+      timeBucket: ChartingTimeFrame,
+      startDate: Date,
+      endDate: Date,
+    ) => Promise<BitsoOhlcItem[]>
   }
 }

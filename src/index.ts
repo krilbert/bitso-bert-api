@@ -58,6 +58,29 @@ const BitsoAPI: BitsoAPI = {
     getFundingDestination: (currency) => privateGet('/funding_destination', { fund_currency: currency }),
     getBankCodes: () => privateGet('/mx_bank_codes'),
   },
+  undocumented: {
+    getChartInfo: (book, timeBucket, startDate, endDate) => {
+      if (endDate <= startDate) throw new Error('date range is incorrect')
+      const time_bucket = chartingTimeFrame[timeBucket]
+      const start = startDate.getTime()
+      const end = endDate.getTime()
+      return publicGet('/ohlc', { book, time_bucket, start, end })
+    },
+  },
+}
+
+export const chartingTimeFrame = {
+  '1 min': 60,
+  '5 min': 300,
+  '15 min': 900,
+  '30 min': 1800,
+  '1 h': 3600,
+  '4 h': 14400,
+  '6 h': 21600,
+  '12 h': 43200,
+  '1 d': 86400,
+  '3 d': 259200,
+  '7 d': 604800,
 }
 
 if (!process.env.BITSO_API_URL)

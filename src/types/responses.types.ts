@@ -372,3 +372,17 @@ export interface BitsoBankCode {
   code: string
   name: string
 }
+
+// Ohlc Charting
+export interface BitsoOhlcItem {
+  bucketStartTime: number
+  firstRate: string
+  firstTradeTime: number
+  lastRate: string
+  lastTradeTime: string
+  maxRate: string
+  minRate: string
+  tradeCount: number
+  volume: string
+  vwap: string
+}

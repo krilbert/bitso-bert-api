@@ -35,14 +35,21 @@ Rate limits are based on one minute windows. For public API requests, the limit 
 
 ### Implemented REST API
 
-The API is divided in two sections: `public` and `private`
+The API is divided in two sections: `public`, `private` and `undocumented`
+
+##### Public API
+
+|     |                 |     |                                  |                                                             |
+| --- | --------------- | --- | -------------------------------- | ----------------------------------------------------------- |
+|     | Available Books | ✅  | getAvailableBooks()              |                                                             |
+|     | Ticker          | ✅  | getTicker('btc_mxn')             |                                                             |
+|     | Order Book      | ✅  | getOrderBook('btc_mxn', params?) | `{ aggregate?: boolean }`                                   |
+|     | Trades          | ✅  | getTrades('btc_mxn', params?)    | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }` |
+
+##### Private API
 
 |     |                                  |     |                                                      |                                                                                         |
 | --- | -------------------------------- | --- | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
-|     | Available Books                  | ✅  | getAvailableBooks()                                  |                                                                                         |
-|     | Ticker                           | ✅  | getTicker('btc_mxn')                                 |                                                                                         |
-|     | Order Book                       | ✅  | getOrderBook('btc_mxn', params?)                     | `{ aggregate?: boolean }`                                                               |
-|     | Trades                           | ✅  | getTrades('btc_mxn', params?)                        | `{ marker?: string, sort?: 'asc'\|'desc', limit?: number }`                             |
 | 🔒  | Account Status                   | ✅  | getAccountStatus()                                   |                                                                                         |
 | 🔒  | Document Upload                  | ☑️  |                                                      |                                                                                         |
 | 🔒  | Mobile Phone Number Registration | ✅  | mobilePhone.register(phoneNumber)                    |                                                                                         |
@@ -88,6 +95,12 @@ The API is divided in two sections: `public` and `private`
 | 🔒  | Bank Codes                       | ✅  | getBankCodes()                                       |                                                                                         |
 | 🔒  | Debit Card Withdrawal            | ☑️  |                                                      |                                                                                         |
 | 🔒  | Phone Number Withdrawal          | ☑️  |                                                      |                                                                                         |
+
+##### Undocumented API
+
+|     |                      |     |                                                    |     |
+| --- | -------------------- | --- | -------------------------------------------------- | --- |
+|     | Charting Information | ✅  | getChartInfo(book, timeBucket, startDate, endDate) |     |
 
 ### Want to support this project?
 
