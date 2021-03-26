@@ -1,4 +1,4 @@
-import { basicGet, privateDelete, privateGet, privatePost, publicGet } from './api-client'
+import { basicGet, privateDelete, privateGet, privatePost, publicGet, publicPost } from './api-client'
 import { BitsoAPI } from './types/bitso-bert-api.types'
 import { generatePlaceOrderParams } from './utils'
 
@@ -130,6 +130,7 @@ const BitsoAPI: BitsoAPI = {
       },
       getChartTrades: (book, timeframe) => basicGet(`https://bitso.com/trade/chartJSON/${book}/${timeframe}`),
     },
+    getTickers: () => publicPost('/ticker', undefined, { book: 'all' }),
     getSettings: () => privateGet('/settings'),
     catalogues: {
       availableCurrencyConversions: {

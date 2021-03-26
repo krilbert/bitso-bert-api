@@ -112,6 +112,7 @@ The API is divided in two sections: `public`, `private` and `undocumented`
 | 🔒  | - Available Currency Conversions | ✅  | catalogues.availableCurrencyConversions.private()         |     |
 |     | - Countries                      | ✅  | catalogues.getCountries()                                 |     |
 |     | - Currencies                     | ✅  | catalogues.getCurrencies()                                |     |
+| 🔒  | Tickers                          | ✅  | getTickers()                                              |     |
 | 🔒  | Settings                         | ✅  | getSettings()                                             |     |
 
 ### Want to support this project?

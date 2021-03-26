@@ -78,6 +78,7 @@ const basicClient = (method: 'GET') => {
 }
 
 export const publicGet = client('GET')
+export const publicPost = client('POST')
 export const privateGet = client('GET', true)
 export const privateDelete = client('DELETE', true)
 export const privatePost = client('POST', true)

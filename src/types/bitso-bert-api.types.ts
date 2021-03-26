@@ -148,6 +148,7 @@ export interface BitsoAPI {
       ) => Promise<BitsoOhlcItem[]>
       getChartTrades: (book: BitsoBook, timeframe: '1month' | '3months' | '1year') => Promise<BitsoTradeChartItem[]>
     }
+    getTickers: () => Promise<BitsoTicker[]>
     getSettings: () => Promise<BitsoSettings>
     catalogues: {
       availableCurrencyConversions: {
