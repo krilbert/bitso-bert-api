@@ -164,7 +164,12 @@ export interface BitsoCustomerFee {
 
 // Ledger
 // TODO: define details
-export type BitsoLedger = BitsoLedgerTrade | BitsoLedgerFee | BitsoLedgerFunding | BitsoLedgerWithdrawal
+export type BitsoLedger =
+  | BitsoLedgerTrade
+  | BitsoLedgerFee
+  | BitsoLedgerFunding
+  | BitsoLedgerWithdrawal
+  | BitsoLedgerQuotedOrder
 
 interface BalanceUpdate {
   currency: BitsoCurrency
@@ -191,6 +196,14 @@ export interface BitsoLedgerFee extends BaseLedger {
   details: {
     tid: string
     oid: string
+  }
+}
+
+export interface BitsoLedgerQuotedOrder extends BaseLedger {
+  operation: 'quoted_order'
+  details: {
+    oid: string
+    qid: string
   }
 }
 

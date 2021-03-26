@@ -32,7 +32,7 @@ export type BitsoCurrencyType = 'fiat' | 'crypto'
 export type BitsoSortDirection = 'asc' | 'desc'
 export type BitsoChart = 'candle' | 'depth'
 
-export type LedgerOperation = 'trade' | 'fee' | 'funding' | 'withdrawal'
+export type LedgerOperation = 'trade' | 'fee' | 'funding' | 'withdrawal' | 'quoted_order'
 export type MethodFee = 'bind' | 'ted' | 'ca' | 'pix' | 'mt'
 export type BitsoSide = 'buy' | 'sell'
 export type BitsoOrderExecution = 'goodtillcancelled' | 'fillorkill' | 'immediateorcancel' | 'postonly'
