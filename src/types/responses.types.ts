@@ -212,7 +212,7 @@ export interface BitsoLedgerFunding extends BaseLedger {
   details: {
     method: string
     methodName: string
-    asset: string
+    asset: BitsoCurrency
     protocol: string
     network: string
     integration: string
@@ -225,7 +225,7 @@ export interface BitsoLedgerWithdrawal extends BaseLedger {
   details: {
     method: string
     methodName: string
-    asset: string
+    asset: BitsoCurrency
     protocol: string
     network: string
     integration: string
@@ -256,7 +256,7 @@ interface PendingWithdrawal extends BaseWithdrawal {
 
 interface CompleteWithdrawal extends BaseWithdrawal {
   status: 'complete'
-  asset: string
+  asset: BitsoCurrency
   network: string
   protocol: string
   integration: string
@@ -294,7 +294,7 @@ interface PendingFunding extends BaseFunding {
 interface CompleteFunding extends BaseFunding {
   status: 'complete'
   methodName: string
-  asset: string
+  asset: BitsoCurrency
   network: string
   protocol: string
   integration: string
