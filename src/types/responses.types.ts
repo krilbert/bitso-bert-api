@@ -179,7 +179,7 @@ interface BalanceUpdate {
 interface BaseLedger {
   eid: string
   operation: LedgerOperation
-  createdAT: string
+  createdAt: string
   balanceUpdates: BalanceUpdate[]
 }
 
