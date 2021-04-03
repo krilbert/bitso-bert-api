@@ -394,7 +394,7 @@ export interface BitsoOhlcItem {
   firstRate: string
   firstTradeTime: number
   lastRate: string
-  lastTradeTime: string
+  lastTradeTime: number
   maxRate: string
   minRate: string
   tradeCount: number
